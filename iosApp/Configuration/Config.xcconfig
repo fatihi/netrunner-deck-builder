@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=netrunner_deck_builder
+PRODUCT_BUNDLE_IDENTIFIER=de.fatih_inan.netrunner_deck_builder.netrunner_deck_builder$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
