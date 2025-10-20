@@ -94,3 +94,10 @@ dependencies {
     debugImplementation(compose.uiTooling)
 }
 
+sqldelight {
+    databases {
+        create("Database") {
+            packageName.set("de.fatih_inan.netrunner_deck_builder")
+        }
+    }
+}

@@ -1,0 +1,30 @@
+import kotlin.Boolean;
+
+CREATE TABLE card (
+    code TEXT PRIMARY KEY NOT NULL,
+    advancement_cost INTEGER,
+    agenda_points INTEGER,
+    base_link INTEGER,
+    cost INTEGER,
+    deck_limit INTEGER NOT NULL,
+    faction_code TEXT NOT NULL,
+    faction_cost INTEGER NOT NULL,
+    flavor TEXT,
+    illustrator TEXT,
+    influence_limit INTEGER NOT NULL,
+    keywords TEXT,
+    memory_cost INTEGER,
+    minimum_deck_size INTEGER,
+    pack_code TEXT NOT NULL,
+    position INTEGER NOT NULL,
+    quantity INTEGER NOT NULL,
+    side_code TEXT NOT NULL,
+    strength INTEGER,
+    stripped_text TEXT,
+    stripped_title TEXT NOT NULL,
+    text TEXT,
+    title TEXT NOT NULL,
+    trash_cost INTEGER,
+    type_code TEXT NOT NULL,
+    uniqueness INTEGER AS Boolean
+);
