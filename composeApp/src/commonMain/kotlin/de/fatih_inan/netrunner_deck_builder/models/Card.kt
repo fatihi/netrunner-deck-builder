@@ -6,15 +6,15 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Card(
     @SerialName("advancement_cost")
-    val advancementCost: Int?,
+    val advancementCost: Int? = null,
     @SerialName("agenda_points")
-    val agendaPoints: Int?,
+    val agendaPoints: Int? = null,
     @SerialName("base_link")
-    val baseLink: Int?,
+    val baseLink: Int? = null,
     @SerialName("code")
     val code: String,
     @SerialName("cost")
-    val cost: Int?,
+    val cost: Int? = null,
     @SerialName("deck_limit")
     val deckLimit: Int,
     @SerialName("faction_code")
@@ -22,17 +22,17 @@ data class Card(
     @SerialName("faction_cost")
     val factionCost: Int,
     @SerialName("flavor")
-    val flavor: String?,
+    val flavor: String? = null,
     @SerialName("illustrator")
-    val illustrator: String?,
+    val illustrator: String? = null,
     @SerialName("influence_limit")
-    val influenceLimit: Int,
+    val influenceLimit: Int? = null,
     @SerialName("keywords")
-    val keywords: String?,
+    val keywords: String? = null,
     @SerialName("memory_cost")
-    val memoryCost: Int?,
+    val memoryCost: Int? = null,
     @SerialName("minimum_deck_size")
-    val minimumDeckSize: Int?,
+    val minimumDeckSize: Int? = null,
     @SerialName("pack_code")
     val packCode: String,
     @SerialName("position")
@@ -42,9 +42,9 @@ data class Card(
     @SerialName("side_code")
     val sideCode: String,
     @SerialName("strength")
-    val strength: String?,
+    val strength: String? = null,
     @SerialName("stripped_text")
-    val strippedText: String?,
+    val strippedText: String? = null,
     @SerialName("stripped_title")
     val strippedTitle: String,
     @SerialName("text")
@@ -52,7 +52,7 @@ data class Card(
     @SerialName("title")
     val title: String,
     @SerialName("trash_cost")
-    val trashCost: Int?,
+    val trashCost: Int? = null,
     @SerialName("type_code")
     val typeCode: String,
     @SerialName("uniqueness")

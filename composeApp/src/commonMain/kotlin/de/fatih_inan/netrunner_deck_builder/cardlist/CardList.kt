@@ -44,7 +44,6 @@ fun CardList(
                     )
                     Column {
                         Text(c.title)
-                        Text(c.text)
                     }
                 }
             }
