@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Text
+import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -24,26 +25,63 @@ fun CardList(
     viewModel: CardListViewModel = viewModel { CardListViewModel() },
 ) {
     val state by viewModel.uiState.collectAsState()
-    LazyColumn(
+
+    Box(
         modifier = Modifier
             .safeContentPadding()
-            .fillMaxSize(),
+            .fillMaxSize()
     ) {
-        state.cards.map { c ->
-            item {
-                Row(
-                    modifier = Modifier
-                        .border(2.dp, Color.Black)
+        when {
+            state.isLoading -> {
+                Text(
+                    text = "Loading cards...",
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+            state.error != null -> {
+                Text(
+                    text = "Error: ${state.error}",
+                    color = Color.Red,
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+            state.cards.isEmpty() -> {
+                Text(
+                    text = "No cards found",
+                    modifier = Modifier.align(Alignment.Center)
+                )
+            }
+            else -> {
+                LazyColumn(
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    Image(
-                        painter = painterResource(Res.drawable.corpid),
-                        contentDescription = null,
-                        modifier = Modifier
-                            .height(50.dp)
-                            .align(Alignment.CenterVertically)
-                    )
-                    Column {
-                        Text(c.title)
+                    state.cards.forEach { c ->
+                        item {
+                            Row(
+                                modifier = Modifier
+                                    .border(2.dp, Color.Black)
+                                    .padding(8.dp)
+                            ) {
+                                Image(
+                                    painter = painterResource(Res.drawable.corpid),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .height(50.dp)
+                                        .align(Alignment.CenterVertically)
+                                )
+                                Column(
+                                    modifier = Modifier.padding(start = 8.dp)
+                                ) {
+                                    Text(c.title)
+                                    c.typeCode?.let { type ->
+                                        Text(
+                                            text = type,
+                                            color = Color.Gray
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

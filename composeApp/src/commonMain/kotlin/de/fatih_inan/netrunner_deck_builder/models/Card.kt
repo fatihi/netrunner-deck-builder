@@ -48,7 +48,7 @@ data class Card(
     @SerialName("stripped_title")
     val strippedTitle: String,
     @SerialName("text")
-    val text: String?,
+    val text: String? = null,
     @SerialName("title")
     val title: String,
     @SerialName("trash_cost")
